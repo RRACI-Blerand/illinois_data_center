@@ -57,9 +57,16 @@ export class ExportDataComponent {
       });
     });
   }
+  /*
+  Calls generateJsonFile with static params
+  */
   listCompletedTrainingWithCounter() {
     this.generateJsonFile(this.completedTrainings, 'Completed trainings ')
   }
+
+  /*
+  Lists trainings and users that attended the training  
+  */
   listCompletedTrainingWithUsersAttended() {
     let date1 = '';
     let date2 = '';
@@ -115,6 +122,11 @@ export class ExportDataComponent {
     this.listAllUserserWithCompletedTrainings(userTrainings, 'User with completed trainings from ' + date1 + ' to ' + date2)
   }
 
+  /**
+   * Lists all users with most recent completed trainings
+   * @param userTrainings all user trainings
+   * @param text file name
+   */
   listAllUserserWithCompletedTrainings(userTrainings: any[], text: any) {
     let tempTrainings: any[] = []
     let tempCompletedTrainings: any[] = this.completedTrainings;
@@ -132,6 +144,9 @@ export class ExportDataComponent {
     this.generateJsonFile(tempCompletedTrainings, text)
   }
 
+  /*
+  Generates expired and about to expire data  
+  */
   generateExpiredAndNonExpiredData() {
     let userTrainings: any[] = []
     let id = 1;
@@ -190,6 +205,11 @@ export class ExportDataComponent {
     this.generateJsonFile(userTrainings, 'Users with expired and expiring soon with date ' + date)
   }
 
+  /**
+   * Generates a json file with given params
+   * @param stream Array for json
+   * @param fileName file name
+   */
   generateJsonFile(stream: any, fileName: string) {
     const str: any = JSON.stringify(stream, null, 2);
     const bytes = new TextEncoder().encode(str);

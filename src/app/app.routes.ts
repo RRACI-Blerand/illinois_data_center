@@ -4,7 +4,7 @@ import { ExportDataComponent } from './export-data/export-data.component';
 
 export const routes: Routes = [
     {
-        path: "task",
+        path: "users",
         component: TaskComponent
     },
     {

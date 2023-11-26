@@ -21,9 +21,11 @@ export class TaskComponent {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    // this.userData = (this.userData as ArrayBuffer).slice(0, 10)
     this.filteredUsers = this.userData
   }
+  /**
+   * Filters users with given string
+   */
   filterUsers() {
     if (this.filter.value && this.filter.value.trim().length > 0) {
       this.filteredUsers = this.userData.filter((el: any) => (el.name as string).toLocaleLowerCase().includes(this.filter.value.toLocaleLowerCase()))

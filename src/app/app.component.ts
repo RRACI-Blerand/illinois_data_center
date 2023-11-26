@@ -15,9 +15,13 @@ export class AppComponent {
   title = 'Illinois data center';
 
   constructor(private router: Router) {
-    this.router.navigateByUrl('export-data')
+    this.router.navigateByUrl('users')
   }
 
+  /**
+   * Navigate to given path
+   * @param path nagivation url
+   */
   goToPath(path: string) {
     this.router.navigateByUrl(path)
   }
