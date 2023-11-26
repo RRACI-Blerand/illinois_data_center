@@ -1,0 +1,24 @@
+.app-container {
+    .banner {
+        background-color: var(--primary-blue-color);
+        height: 100px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        img {
+            height: 60px;
+        }
+        .text {
+            color: white;
+        }
+    }
+    .mid {
+        padding: 10px;
+        border: solid 1px lightgray;
+        margin: 20px;
+        border-radius: 10px;
+    }
+    .footer {
+    }
+}

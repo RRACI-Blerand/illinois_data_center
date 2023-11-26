@@ -1,0 +1,58 @@
+<div class="task-container container-fluid">
+    <div class="data-table">
+        <p>
+            You can do filtering on this table, in this case you can simply start typing something!
+        </p>
+
+        <form>
+            <div class="mb-3 row">
+                <label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Name search:</label>
+                <div class="col-xs-3 col-sm-auto">
+                    <input id="table-filtering-search" class="form-control" type="text" (keyup)="filterUsers()"
+                        [formControl]="filter" />
+                </div>
+            </div>
+        </form>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">UserName</th>
+                    <th scope="col">Completions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (user of filteredUsers; track user.name; let i = $index) {
+                <tr>
+                    <!-- {{user |json}} -->
+                    <th scope="row" class="cell-aligment">{{ i + 1 }}</th>
+                    <td class="cell-aligment">
+                        <ngb-highlight [result]="user.name" [term]="filter.value" />
+                    </td>
+                    <td>
+                        <div class="row d-flex flex-row">
+                            <ng-container *ngIf="user.completions.length>0">
+                                <div class="col-auto cell-border" *ngFor="let item of user.completions">
+                                    <div class="col-auto d-flex">{{item.name?item.name:'No training completed'}}</div>
+                                    <div class="col-auto">Time stamp: {{item.timestamp}}</div>
+                                    <div class="col-auto">Exp. date: {{item.expires?item.expires:'Unlimited'}}</div>
+                                </div>
+                            </ng-container>
+                            <ng-container *ngIf="user.completions.length<=0">
+                                <div class="col-auto cell-border">
+                                    <div class="col-auto d-flex">{{'No trainings completed !'}}</div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </td>
+                </tr>
+                } @empty {
+                <tr>
+                    <td colspan="4" style="text-align: center">No countries found</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

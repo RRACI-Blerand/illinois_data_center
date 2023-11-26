@@ -1,0 +1,18 @@
+.task-container {
+    margin: 10px;
+    padding: 10px;
+    .data-table {
+        overflow: auto;
+        height: 69vh;
+        padding: 12px;
+    }
+}
+.cell-border {
+    border: solid 1px lightgray;
+    border-radius: 10px;
+    padding: 10px;
+}
+.cell-aligment {
+    text-align: center;
+    vertical-align: middle;
+}

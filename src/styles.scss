@@ -1,0 +1,71 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
+/* Importing Bootstrap SCSS file. */
+@import "bootstrap/scss/bootstrap";
+:root {
+    --primary-blue-color: #2f4998;
+    --primary-blue-light-color: #2f499812;
+    --secondary-blue-color: #43b2e1;
+    --blue-disabled-color: #3b4b7b;
+}
+
+.text-primary {
+    color: var(--primary-blue-color) !important;
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--primary-blue-color);
+    --bs-btn-border-color: var(--primary-blue-color);
+    --bs-btn-hover-bg: var(--secondary-blue-color);
+    --bs-btn-hover-border-color: var(--secondary-blue-color);
+    --bs-btn-active-bg: var(--secondary-blue-color);
+    --bs-btn-active-border-color: var(--secondary-blue-color);
+    --bs-btn-disabled-bg: var(--primary-blue-color);
+    --bs-btn-disabled-border-color: var(--blue-disabled-color);
+}
+
+html,
+body {
+    height: 100%;
+    font-family: "Poppins", sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #c18e8e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--blue-disabled-color);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--blue-disabled-color);
+}
+
+.default-input,
+.default-dropdonw {
+    background-color: #f3f4f5;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 6px;
+}
+
+.default-input:focus,
+.default-dropdonw:focus {
+    outline: none;
+}
+
+.default-input {
+    padding: 10px 10px;
+}
+
+.default-dropdonw {
+    background-color: #f3f4f5;
+    border: none;
+}

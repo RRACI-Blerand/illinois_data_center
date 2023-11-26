@@ -1,0 +1,28 @@
+<div class="app-container">
+  <div class="banner">
+    <img src="https://illinois.edu/assets/img/branding/illinois_primary_wordmark_reversed_orange.svg" alt="">
+    <div class="text">
+      DATA MANAGEMENT CENTER
+    </div>
+  </div>
+  <div class="mid row">
+    <div class="navmenu">
+      <ul ngbNav #nav="ngbNav" class="nav-tabs">
+        <li ngbNavItem>
+          <button ngbNavLink (click)="goToPath('task')">University users</button>
+          <ng-template ngbNavContent>
+            <router-outlet></router-outlet>
+          </ng-template>
+        </li>
+        <li ngbNavItem>
+          <button ngbNavLink (click)="goToPath('export-data')">Export data</button>
+          <ng-template ngbNavContent>
+            <router-outlet></router-outlet>
+          </ng-template>
+        </li>
+      </ul>
+      <div [ngbNavOutlet]="nav"></div>
+    </div>
+  </div>
+  <div class="footer"></div>
+</div>

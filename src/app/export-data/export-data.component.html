@@ -1,0 +1,78 @@
+<div class="task-container container-fluid">
+    <h3>Data export center</h3>
+    <li>
+        To download list of each
+        completed
+        training with a count of how many people
+        have completed that training <span class="blueText" (click)="listCompletedTrainingWithCounter()">click
+            here.</span>
+
+    </li>
+    <li>To download list for each specified training and all the people that completed that training with custom
+        trainings and time
+        spans please fill the dates and click on generate.
+    </li>
+    <form [formGroup]="dateSetFormGroup">
+        <div class="row my-3 px-5">
+
+            <div class="mb-3 col-auto">
+                <label for="" class="form-label">Trainings (hold control or click and hold through items)</label>
+                <select formControlName="trainings" multiple class="form-select form-select-lg select-padding" name=""
+                    id="">
+                    <option ngbTooltip="{{training.trainingName}}" *ngFor="let training of completedTrainings"
+                        [value]="training.trainingName">
+                        {{training.trainingName}}</option>
+                </select>
+            </div>
+            <div class="col-auto inputs">
+                <div class="input-group cell">
+                    <span class="me-2">Start Date:</span>
+                    <input class="form-control" placeholder="yyyy-mm-dd" name="startDate" formControlName="startDate"
+                        ngbDatepicker #sd="ngbDatepicker" />
+                    <button class="btn p-0 btn-outline-secondary bi bi-calendar3" (click)="sd.toggle()" type="button">
+                        <ng-container *ngTemplateOutlet="calendar"></ng-container>
+                    </button>
+                </div>
+                <div class="input-group cell">
+                    <span class="me-2">End Date:</span>
+                    <input class="form-control" placeholder="yyyy-mm-dd" name="endDate" formControlName="endDate"
+                        ngbDatepicker #ed="ngbDatepicker" />
+                    <button class="btn p-0 btn-outline-secondary bi bi-calendar3" (click)="ed.toggle()" type="button">
+                        <ng-container *ngTemplateOutlet="calendar"></ng-container>
+
+                    </button>
+                </div>
+                <button type="button" class="btn btn-primary" (click)="listCompletedTrainingWithUsersAttended()"
+                    [disabled]="!dateSetFormGroup.valid">Generate</button>
+            </div>
+        </div>
+    </form>
+    <li>To find all people that have any completed trainings that have already expired, or will expire within one month
+        of the specified date.For each person
+        found, list each completed training that met the previous criteria, with an additional field to indicate expired
+        vs expires soon please fill the date and click on generate.
+    </li>
+
+    <form [formGroup]="dateFormGroup">
+        <div class="row my-3 px-5">
+            <div class="col-auto inputs">
+                <div class="input-group cell">
+                    <span class="me-2">Date:</span>
+                    <input class="form-control" placeholder="yyyy-mm-dd" name="date" formControlName="date"
+                        ngbDatepicker #date="ngbDatepicker" />
+                    <button class="btn p-0 btn-outline-secondary bi bi-calendar3" (click)="date.toggle()" type="button">
+                        <ng-container *ngTemplateOutlet="calendar"></ng-container>
+                    </button>
+                </div>
+                <button type="button" class="btn btn-primary" (click)="generateExpiredAndNonExpiredData()"
+                    [disabled]="!dateFormGroup.valid">Generate</button>
+            </div>
+        </div>
+    </form>
+
+
+</div>
+
+<ng-template #calendar>
+    <img height="30px" width="30px" src="../../assets/images/calendar_icon.png" alt="">
+</ng-template>

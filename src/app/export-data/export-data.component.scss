@@ -1,0 +1,47 @@
+// @import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
+.task-container {
+    margin: 10px;
+    padding: 10px;
+    .data-table {
+        overflow: auto;
+        height: 69vh;
+        padding: 12px;
+    }
+}
+.cell-border {
+    border: solid 1px lightgray;
+    border-radius: 10px;
+    padding: 10px;
+}
+.cell-aligment {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.blueText {
+    text-decoration: underline;
+    color: var(--primary-blue-color);
+    cursor: pointer;
+}
+.inputs {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    .cell {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        button {
+            height: 38px;
+            width: 38px;
+        }
+    }
+}
+.select-padding {
+    padding: 1rem !important;
+}
